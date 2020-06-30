@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.location.app.entities.Location;
 import com.location.app.services.LocationService;
@@ -31,10 +32,18 @@ public class LocationController {
 	}
 	
 	@RequestMapping("/displayLocations")
-	public String displayLoactions(ModelMap model) {
+	public String displayLocations(ModelMap model) {
 		List<Location> allLocations = locationService.getAllLocations();
 		model.addAttribute("locations", allLocations);
 		return "displayLocations";
+	}
+	
+	@RequestMapping("/deleteLocation")
+	public String deleteLocation(@RequestParam("id") int id) {
+		Location location = locationService.getLocationById(id);
+		locationService.deleteLocation(location);
+		//Also we can getAllLocations() and set it rather redirecting
+		return "redirect:displayLocations";
 	}
 
 }
