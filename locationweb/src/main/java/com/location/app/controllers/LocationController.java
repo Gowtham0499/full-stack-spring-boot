@@ -42,7 +42,24 @@ public class LocationController {
 	public String deleteLocation(@RequestParam("id") int id) {
 		Location location = locationService.getLocationById(id);
 		locationService.deleteLocation(location);
-		//Also we can getAllLocations() and set it rather redirecting
+		//Also we can getAllLocations() and set it in Model rather than redirecting
+		return "redirect:displayLocations";
+	}
+	
+	@RequestMapping("/showUpdate")
+	public String showUpdatePage(@RequestParam("id") int id, ModelMap model) {
+		Location location = locationService.getLocationById(id);
+		model.addAttribute("location", location);
+		return "updateLocation";
+	}
+	
+	@RequestMapping("/updateLocation")
+	public String updateLocation(@ModelAttribute("location") Location location) {
+		locationService.updateLocation(location);
+//		Also we can getAllLocations() and set it in Model rather than redirecting
+//		List<Location> allLocations = locationService.getAllLocations();
+//		model.addAttribute("locations", allLocations);
+//		return "displayLocations";
 		return "redirect:displayLocations";
 	}
 
