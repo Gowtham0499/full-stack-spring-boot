@@ -22,6 +22,8 @@
 		<br>
 		<button type="submit" class="btn btn-primary">Login</button>
 	</form>
+	<br>
+	<div class="alert alert-warning" role="alert">${ errmsg }</div>
 </div>
 </body>
 </html>
