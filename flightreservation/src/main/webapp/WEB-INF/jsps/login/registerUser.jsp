@@ -34,6 +34,8 @@
 		<br>
 		<button type="submit" class="btn btn-primary">Register</button>
 	</form>
+	<br>
+	<h6>Already Registered?</h6>&nbsp;<a href="showLogin" class="btn btn-success">Login</a>
 </div>
 </body>
 </html>
