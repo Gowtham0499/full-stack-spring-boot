@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
 <title>User Login</title>
 </head>
 <body>
@@ -18,6 +19,7 @@
 			<label for="password">Password</label> 
 			<input type="password" class="form-control" id="password" name="password" placeholder="Enter your Password"/>
 		</div>
+		<br>
 		<button type="submit" class="btn btn-primary">Login</button>
 	</form>
 </div>

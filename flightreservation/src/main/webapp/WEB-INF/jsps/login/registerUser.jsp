@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
 <title>User Registration</title>
 </head>
 <body>
@@ -32,6 +31,7 @@
 			<label for="password">Confirm Password</label> 
 			<input type="password" class="form-control" id="password" name="confirmPassword" placeholder="Enter your Password"/>
 		</div>
+		<br>
 		<button type="submit" class="btn btn-primary">Register</button>
 	</form>
 </div>
