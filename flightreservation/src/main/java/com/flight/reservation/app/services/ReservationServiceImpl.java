@@ -54,6 +54,8 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		String filePath = "F:\\Software\\InstalledSoftwares\\eclipse\\fullstack\\reservations" + reservedTicket.getId() + ".pdf";
 		pdfGenerator.generateItinerary(reservedTicket, filePath);
+		
+		emailUtil.sendItinerary(reservedTicket.getPassenger().getEmail(), filePath);
 
 		return reservedTicket;
 	}
