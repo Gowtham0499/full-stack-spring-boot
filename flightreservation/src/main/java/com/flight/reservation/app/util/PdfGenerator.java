@@ -18,15 +18,11 @@ public class PdfGenerator {
 
 	public void generateItinerary(Reservation reservation, String filePath) {
 		Document document = new Document();
-		document.open();
-		try {
-			document.add(generateTable(reservation));
-		} catch (DocumentException e1) {
-			e1.printStackTrace();
-		}
-		document.close();
 		try {
 			PdfWriter.getInstance(document, new FileOutputStream(filePath));
+			document.open();
+			document.add(generateTable(reservation));
+			document.close();
 		} catch (FileNotFoundException | DocumentException e) {
 			e.printStackTrace();
 		}
