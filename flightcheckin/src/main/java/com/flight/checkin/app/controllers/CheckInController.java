@@ -1,4 +1,4 @@
-package com.flight.checkin.controllers;
+package com.flight.checkin.app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.flight.checkin.dto.Reservation;
-import com.flight.checkin.dto.ReservationUpdateRequest;
-import com.flight.checkin.integration.ReservationRestClient;
+import com.flight.checkin.app.dto.Reservation;
+import com.flight.checkin.app.dto.ReservationUpdateRequest;
+import com.flight.checkin.app.integration.ReservationRestClient;
 
 @Controller
 public class CheckInController {
@@ -17,9 +17,9 @@ public class CheckInController {
 	@Autowired
 	ReservationRestClient reservationRestClient;
 
-	@RequestMapping(value = "/showStartCheckIn", method = RequestMethod.GET)
-	public String showStartCheckIn() {
-		return "showStartCheckIn";
+	@RequestMapping(value = "/showStartCheckin", method = RequestMethod.GET)
+	public String showStartCheckin() {
+		return "startCheckin";
 	}
 	
 	@RequestMapping(value = "/startCheckIn", method = RequestMethod.POST)

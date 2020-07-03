@@ -1,4 +1,4 @@
-package com.flight.checkin.dto;
+package com.flight.checkin.app.dto;
 
 public class Passenger {
 

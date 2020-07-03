@@ -1,7 +1,7 @@
-package com.flight.checkin.integration;
+package com.flight.checkin.app.integration;
 
-import com.flight.checkin.dto.Reservation;
-import com.flight.checkin.dto.ReservationUpdateRequest;
+import com.flight.checkin.app.dto.Reservation;
+import com.flight.checkin.app.dto.ReservationUpdateRequest;
 
 public interface ReservationRestClient {
 	

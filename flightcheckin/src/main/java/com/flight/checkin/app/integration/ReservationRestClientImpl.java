@@ -1,17 +1,17 @@
-package com.flight.checkin.integration;
+package com.flight.checkin.app.integration;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.flight.checkin.dto.Reservation;
-import com.flight.checkin.dto.ReservationUpdateRequest;
+import com.flight.checkin.app.dto.Reservation;
+import com.flight.checkin.app.dto.ReservationUpdateRequest;
 
 @Component
 public class ReservationRestClientImpl implements ReservationRestClient {
 
 	private static final String RESERVATION_REST_URL = "http://localhost:8080/flightreservation/reservations/";
 
-	@Override
+	@Override	
 	public Reservation findReservation(Long id) {
 		RestTemplate template = new RestTemplate();
 		Reservation reservation = template.getForObject(RESERVATION_REST_URL + id, Reservation.class);

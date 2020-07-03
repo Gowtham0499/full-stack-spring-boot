@@ -1,4 +1,4 @@
-package com.flight.checkin.dto;
+package com.flight.checkin.app.dto;
 
 import java.sql.Timestamp;
 import java.util.Date;
