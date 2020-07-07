@@ -31,5 +31,10 @@ public class FlightController {
 		model.addAttribute("flights", flights);
 		return "displayFlights";
 	}
+	
+	@RequestMapping(value = "/admin/showAddFlight")
+	public String showAddFlight() {
+		return "addFlight";
+	}
 
 }

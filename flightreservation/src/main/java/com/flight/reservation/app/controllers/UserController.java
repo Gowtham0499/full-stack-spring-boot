@@ -3,6 +3,7 @@ package com.flight.reservation.app.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.flight.reservation.app.entities.User;
 import com.flight.reservation.app.repository.UserRepository;
+import com.flight.reservation.app.services.SecurityService;
 
 @Controller
 public class UserController {
@@ -20,6 +22,12 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
+	@Autowired
+	SecurityService securityService;
 	
 	@RequestMapping(value = "/userRegistration", method = RequestMethod.GET)
 	public String showRegistrationPage() {
@@ -30,6 +38,7 @@ public class UserController {
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public String registerUser(@ModelAttribute("user") User user) {
 		LOGGER.info("Inside registerUser()");
+		user.setPassword(encoder.encode(user.getPassword()));
 		userRepository.save(user);
 		return "login/login";
 	}
@@ -43,8 +52,8 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("email") String email,@RequestParam("password") String password, ModelMap model) {
 		LOGGER.info("Inside login()");
-		User user = userRepository.findByEmail(email);
-		if(user.getPassword().equals(password)) {
+		boolean loginResponse = securityService.login(email, password);
+		if(loginResponse) {
 			return "findFlights";
 		} else {
 			model.addAttribute("errmsg", "Invalid Username or Password!! Please Try Again!!");
