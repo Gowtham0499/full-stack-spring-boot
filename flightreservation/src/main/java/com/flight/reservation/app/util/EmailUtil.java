@@ -8,13 +8,20 @@ import javax.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EmailUtil {
+
+	@Value("${com.flight.reservation.itenarary.email.subject}")
+	private String EMAIL_SUBJECT;
 	
+	@Value("${com.flight.reservation.itenarary.email.body}")
+	private String EMAIL_BODY;
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmailUtil.class);
 
 	@Autowired
@@ -26,8 +33,8 @@ public class EmailUtil {
 		try {
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
 			helper.setTo(toAddress);
-			helper.setSubject("Itinerary for your Flight");
-			helper.setText("Please Find your Itinerary attached.");
+			helper.setSubject(EMAIL_SUBJECT);
+			helper.setText(EMAIL_BODY);
 			helper.addAttachment("Itinerary", new File(filePath));
 		} catch (MessagingException e) {
 			LOGGER.error("Exception Inside sendItinerary()" + e);
