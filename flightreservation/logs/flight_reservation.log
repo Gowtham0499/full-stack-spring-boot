@@ -1,0 +1,39 @@
+2020-07-07 15:29:13 - Starting FlightreservationApplication on LAPTOP-78S9VD18 with PID 8860 (F:\Git Local\full-stack-spring-boot\flightreservation\target\classes started by HP in F:\Git Local\full-stack-spring-boot\flightreservation)
+2020-07-07 15:29:13 - No active profile set, falling back to default profiles: default
+2020-07-07 15:29:14 - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-07 15:29:14 - Finished Spring Data repository scanning in 52ms. Found 4 JPA repository interfaces.
+2020-07-07 15:29:14 - Tomcat initialized with port(s): 8080 (http)
+2020-07-07 15:29:14 - Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-07 15:29:14 - Starting service [Tomcat]
+2020-07-07 15:29:14 - Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-07 15:29:15 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-07 15:29:15 - Initializing Spring embedded WebApplicationContext
+2020-07-07 15:29:15 - Root WebApplicationContext: initialization completed in 1350 ms
+2020-07-07 15:29:15 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-07 15:29:15 - HikariPool-1 - Starting...
+2020-07-07 15:29:15 - HikariPool-1 - Start completed.
+2020-07-07 15:29:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-07 15:29:16 - HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-07 15:29:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-07 15:29:16 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-07 15:29:16 - Adding welcome page: ServletContext resource [/index.html]
+2020-07-07 15:29:16 - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-07 15:29:16 - Starting ProtocolHandler ["http-nio-8080"]
+2020-07-07 15:29:16 - Tomcat started on port(s): 8080 (http) with context path '/flightreservation'
+2020-07-07 15:29:16 - Triggering deferred initialization of Spring Data repositories…
+2020-07-07 15:29:16 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-07 15:29:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-07 15:29:17 - Spring Data repositories initialized!
+2020-07-07 15:29:17 - Started FlightreservationApplication in 3.724 seconds (JVM running for 4.821)
+2020-07-07 15:29:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-07 15:29:22 - Initializing Servlet 'dispatcherServlet'
+2020-07-07 15:29:22 - Completed initialization in 11 ms
+2020-07-07 15:29:23 - Inside showLoginPage()
+2020-07-07 15:29:32 - Inside login()
+2020-07-07 15:29:36 - Inside findFlights() method From: AUS To: NYC Departure Date: Mon Feb 05 00:00:00 IST 2018
+2020-07-07 15:29:38 - Invoked showCompleteReservation() method with flight ID 2
+2020-07-07 15:29:46 - Application shutdown requested.
+2020-07-07 15:29:46 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-07 15:29:46 - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-07 15:29:46 - HikariPool-1 - Shutdown initiated...
+2020-07-07 15:29:46 - HikariPool-1 - Shutdown completed.

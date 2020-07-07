@@ -1,5 +1,7 @@
 package com.flight.reservation.app.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +32,13 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	@Autowired
 	EmailUtil emailUtil;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
 	@Override
 	public Reservation bookFlight(ReservationRequest request) {
+		
+		LOGGER.info("Inside bookFlight()");
 		
 		//Payment Logic
 		
@@ -44,17 +50,20 @@ public class ReservationServiceImpl implements ReservationService {
 		passenger.setLastName(request.getPassengerLastName());
 		passenger.setEmail(request.getPassengerEmail());
 		passenger.setPhone(request.getPassengerPhone());
+		LOGGER.info("Saving the Passenger: " + passenger);
 		Passenger savedPassenger = passengerRepository.save(passenger);
 		
 		Reservation reservation = new Reservation();
 		reservation.setFlight(flight);
 		reservation.setCheckedIn(false);
 		reservation.setPassenger(savedPassenger);
+		LOGGER.info("Saving the reservation: " + reservation);
 		Reservation reservedTicket = reservationRepository.save(reservation);
 		
 		String filePath = "F:\\Software\\InstalledSoftwares\\eclipse\\fullstack\\reservations\\reservation_" + reservedTicket.getId() + ".pdf";
+		LOGGER.info("Generating the Itenarary");
 		pdfGenerator.generateItinerary(reservedTicket, filePath);
-		
+		LOGGER.info("Emailing the Itenarary");
 		emailUtil.sendItinerary(reservedTicket.getPassenger().getEmail(), filePath);
 
 		return reservedTicket;
