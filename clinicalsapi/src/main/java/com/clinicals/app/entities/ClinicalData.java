@@ -57,4 +57,12 @@ public class ClinicalData {
 		this.measuredDateTime = measuredDateTime;
 	}
 
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
 }
