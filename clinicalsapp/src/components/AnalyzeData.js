@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import chartLogo from '../chart-logo.jpg';
 
 class AnalyzeData extends React.Component {
 
@@ -23,7 +25,7 @@ class AnalyzeData extends React.Component {
                 Age: {this.state.age} <br/>
 
                 <h2>Clinical Report</h2><br/>
-                {this.state.clinicalData.map(eachEntry=><TableCreator item={eachEntry} patientId={this.state.patientId} />)}
+                {this.state.clinicalData.map(eachEntry=><TableCreator item={eachEntry} patientId={this.state.id} />)}
             </div>
         )
     }
@@ -40,12 +42,15 @@ class TableCreator extends React.Component {
         return(
             <div>
                 <table>
+                    <tbody>
                     <tr><td><b>{eachEntry.componentName}</b></td></tr>
                     <tr>
                         <td>{eachEntry.componentName}</td>
                         <td>{eachEntry.componentValue}</td>
                         <td>{eachEntry.measuredDateTime}</td>
+                        <td><Link to={'/chart/' + eachEntry.componentName + '/' + patientId}><img src={chartLogo} height='40' width='40' alt='chart logo'/></Link></td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         )
